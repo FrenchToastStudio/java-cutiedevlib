@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+java {
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = "http://localhost:56306/snapshots"
+            allowInsecureProtocol = true
+            credentials {
+                username = "cutiedev"
+                password = "HU2uQtjNlDzxVmg/hS6jwzFBjXBR4unrCJd5aTkmBDonIvm2QYiUPL4qs5x/Rjkw"
+            }
+        }
+    }
+}
